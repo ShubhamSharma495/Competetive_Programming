@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-int partition(int arr[], int si, int mid, int ei){
+int partition(int arr[], int si, int ei){
     int i=si-1;
     int pivot =arr[ei];
     for(int j=si; j<ei; j++){

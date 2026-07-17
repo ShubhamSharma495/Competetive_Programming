@@ -1,22 +1,22 @@
-#include <iostream>
-#include <vector>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
-
+using ll = long long;
 int solve(){
-    vector<int> arr(7);
-    
-    for(int i=0;i<7;i++){
-        cin>> arr[i];
-    }
-    int sum=0;
-    int max=INT_MIN;
-    for(int i=0;i<7;i++){
-        sum+=arr[i];
-        if(arr[i]>max) max=arr[i];
+    int n; cin>>n;
+    vector<int> a(n), b(n);
+    for(auto &x : a) cin >>x;
+    for(auto &x : b) cin>>x;
 
+    ll answer=0;
+    for(int i=0; i<n ;i++){
+        int j=i;
+        for(; j<n && a[j]>b[i]; j++);
+        if(j==n) {answer=-1; break;}
+        for(; j>i; j-- ){swap(a[j], a[j-1]) ; answer++;}
     }
-    return 2*max - sum;
+    return answer;
+
+
 }
 
 int main(){

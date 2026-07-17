@@ -1,13 +1,25 @@
-#include <iostream>
+#include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 
-int updateIthBit(int num, int i, int val){
-    num = num&(~(1<<i));
-    num= num|(val<<i);
-    return num;
+
+int rotateArray(vector<int>& nums, int k) {
+    int n=nums.size();
+    for(int i=0;i<k;i++){
+        int temp=nums[0];
+        for(int i=0; i<n;i++){
+            swap(nums[i], nums[i+1]);
+        }
+        nums[n-1]=temp;
+    }   
+    for(int i=0; i<n;i++){
+        cout<<nums[i]<<" ";
+    }
 }
 
 int main(){
-    cout << updateIthBit(7,2,0);
+    vector<int> a = {1,2,3,4,5};
+    int k=4;
+    rotateArray(a, k);
     return 0;
 }

@@ -8,15 +8,14 @@ void solve() {
     vector<ll> a(n);
     for (int i=0; i<n; i++) cin >> a[i];
     
-    sort(a.begin(), a.end());
-    ll x = a[n / 2];
-    int L = 0, R = 0;
-    for (int j = 0; j < n; j++) {
-        if (a[j] < x) L++;
-        else if (a[j] > x) R++;
+    ll prefix = 0;
+    ll minAvg = LLONG_MAX;
+    for (int i = 0; i < n; i++) {
+        prefix += a[i];
+        ll avg = prefix / (i + 1);
+        minAvg = min(minAvg, avg);
+        cout << minAvg << (i + 1 == n ? '\n' : ' ');
     }
-    
-    cout << max(L, R) << "\n";
 
 }
 
@@ -32,3 +31,4 @@ int main() {
     
     return 0;
 }
+

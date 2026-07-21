@@ -6,18 +6,14 @@ void solve() {
     int n;
     cin >> n;
     vector<ll> a(n);
-    for (int i=0; i<n; i++) cin >> a[i];
-    
-    sort(a.begin(), a.end());
-    ll x = a[n / 2];
-    int L = 0, R = 0;
-    for (int j = 0; j < n; j++) {
-        if (a[j] < x) L++;
-        else if (a[j] > x) R++;
-    }
-    
-    cout << max(L, R) << "\n";
 
+    for (int i = 0; i < n; i++) {
+        a[i] = 2*(i+1)-1;         
+                        
+    }
+    for (int i = 0; i < n; i++) {
+        cout << a[i] << (i + 1 == n ? '\n' : ' ');
+    }
 }
 
 int main() {
